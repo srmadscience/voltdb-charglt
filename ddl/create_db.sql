@@ -1,4 +1,12 @@
 
+--
+-- Copyright (C) 2025 Volt Active Data Inc.
+--
+-- Use of this source code is governed by an MIT
+-- license that can be found in the LICENSE file or at
+-- https://opensource.org/licenses/MIT.
+--
+
 load classes ../lib/gson-2.2.2.jar;
 
 load classes ../jars/voltdb-chargingdemo.jar;

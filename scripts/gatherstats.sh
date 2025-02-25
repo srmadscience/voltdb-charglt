@@ -1,4 +1,12 @@
 #!/bin/sh
+#
+#  Copyright (C) 2025 Volt Active Data Inc.
+# 
+#  Use of this source code is governed by an MIT
+#  license that can be found in the LICENSE file or at
+#  https://opensource.org/licenses/MIT.
+# 
+
 ITYPE=`curl -s http://169.254.169.254/latest/meta-data/instance-type`
 KFACTOR=`cat $HOME/voltwrangler_params.dat | awk '{ print $2 }'`
 CMDLOGGING=`cat $HOME/voltwrangler_params.dat | awk '{ print $3 }'`

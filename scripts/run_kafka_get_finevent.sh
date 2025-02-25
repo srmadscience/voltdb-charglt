@@ -1,5 +1,13 @@
 #!/bin/sh
 
+#
+#  Copyright (C) 2025 Volt Active Data Inc.
+# 
+#  Use of this source code is governed by an MIT
+#  license that can be found in the LICENSE file or at
+#  https://opensource.org/licenses/MIT.
+# 
+
 KPORT=9092
 KHOSTS=`cat $HOME/.vdbhostnames | sed '1,$s/,/:'${KPORT}',/g'`:${KPORT}
 
