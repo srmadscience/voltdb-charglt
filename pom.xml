@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>voltdb-charglt</groupId>
+	<artifactId>voltdb-charglt</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Volt Charging Demo</name>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>
+								org.voltdb.chargingdemo.ChargingDemoTransactions</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- https://mvnrepository.com/artifact/org.voltdb/voltdb -->
+	<dependencies>
+		<dependency>
+			<groupId>org.voltdb</groupId>
+			<artifactId>voltdb</artifactId>
+			<version>10.1.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.voltdb/voltdbclient -->
+		<dependency>
+			<groupId>org.voltdb</groupId>
+			<artifactId>voltdbclient</artifactId>
+			<version>14.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>2.0.17</version>
+		</dependency>
+	</dependencies>
+</project>
