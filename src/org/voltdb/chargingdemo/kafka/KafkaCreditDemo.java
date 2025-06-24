@@ -58,9 +58,10 @@ public class KafkaCreditDemo {
 
         Properties config = new Properties();
         config.put("client.id", InetAddress.getLocalHost().getHostName());
-        config.put("bootstrap.servers", kafkaserverplusport);
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaserverplusport);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        config.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, false);
         config.put("acks", "all");
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(config);
@@ -95,7 +96,7 @@ public class KafkaCreditDemo {
             String request = SINGLE_QUOTE + userId + QUOTE_COMMA_QUOTE + amount + QUOTE_COMMA_QUOTE + txnId
                     + SINGLE_QUOTE;
 
-            ProducerRecord<String, String> newrec = new ProducerRecord<>("ADDCREDIT", request);
+            ProducerRecord<String, String> newrec = new ProducerRecord<>("ADDCREDIT", txnId, request);
 
             Future<RecordMetadata> theFuture = producer.send(newrec);
 
