@@ -15,7 +15,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -108,14 +107,6 @@ public class KafkaCreditDemo {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-                }
-
-                try {
-                    RecordMetadata rmd = theFuture.get();
-                    msg(rmd.toString());
-                } catch (InterruptedException | ExecutionException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
                 }
 
                 msg("On transaction# " + tranCount + ", user,amount,txnid= " + request);
