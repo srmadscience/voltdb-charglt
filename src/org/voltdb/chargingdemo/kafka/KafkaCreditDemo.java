@@ -8,7 +8,6 @@
 
 package org.voltdb.chargingdemo.kafka;
 
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
@@ -16,10 +15,13 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 public class KafkaCreditDemo {
@@ -95,9 +97,26 @@ public class KafkaCreditDemo {
 
             ProducerRecord<String, String> newrec = new ProducerRecord<>("ADDCREDIT", request);
 
-            producer.send(newrec);
+            Future<RecordMetadata> theFuture = producer.send(newrec);
 
             if (tranCount++ % 10000 == 0) {
+                while (!theFuture.isDone()) {
+                    try {
+                        Thread.sleep(0, 50000);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+
+                try {
+                    RecordMetadata rmd = theFuture.get();
+                    msg(rmd.toString());
+                } catch (InterruptedException | ExecutionException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
                 msg("On transaction# " + tranCount + ", user,amount,txnid= " + request);
             }
 
