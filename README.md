@@ -5,6 +5,9 @@
 ## See Also:
 
 [mongodb-charglt](https://github.com/srmadscience/mongodb-charglt)
+[s2-charglt](https://github.com/srmadscience/s2-charglt)
+[redis-charglt](https://github.com/srmadscience/redis-charglt)
+
 ## Introduction
 
 This is a demo of the core functionality of Volt. Most demos are designed to be as simplistic as possible. I&#39;ve always found that frustrating, as anyone who has ever written a real world application knows that what takes two lines in a demo can take about 50 in reality. With that in mind, we wrote voltdb-charglt, which is intended to demonstrate how we can help in scenarios such as telco where users are working with shared and finite resources while meeting SLAs, such as SMS messages or bandwidth. Instead of simplifying things to the point of absurdity, it tries to be realistic yet still comprehensible to outsiders.
@@ -164,10 +167,11 @@ To make things easier we use a file called &quot;[runbenchmark.sh](https://githu
 
 ### Sample Results
 
-In the graph below the green line is &quot;Requested TPMS&quot; - How many transactions per millisecond we were trying to do.
 
 
 ![graph](https://github.com/srmadscience/voltdb-charglt/blob/master/results/sorted_raw_data_chart190725.png "graph")
+
+* In the graph above the green line is &quot;Requested TPMS&quot; - How many transactions per millisecond we were trying to do.
 
 * The red line is what we actually did. Due to the vagaries of how the test runs it&#39;s often slightly higher than &quot;Requested TPMS&quot; at the start, but then tracks it reasonably accurately.
 
