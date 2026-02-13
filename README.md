@@ -170,15 +170,15 @@ In the graph below the green line is &quot;Requested TPMS&quot; - How many trans
 
 ![graph](https://github.com/srmadscience/voltdb-charglt/blob/master/results/sorted_raw_data_chart190725.png "graph")
 
-The red line is what we actually did. Due to the vagaries of how the test runs it&#39;s often slightly higher than &quot;Requested TPMS&quot; at the start, but then tracks it reasonably accurately.
+* The red line is what we actually did. Due to the vagaries of how the test runs it&#39;s often slightly higher than &quot;Requested TPMS&quot; at the start, but then tracks it reasonably accurately.
 
-The grey line is server CPU Busy %, which is on the right hand scale. We see that it accurately aligns with &quot;Actual TPMS&quot;, which is good.
+* The grey line is server CPU Busy %, which is on the right hand scale. We see that it accurately aligns with &quot;Actual TPMS&quot;, which is good.
 
-The blue line is the 99th Percentile latency for [ReportQuotaUsage](https://github.com/srmadscience/voltdb-charglt/blob/master/serverSrc/chargingdemoprocs/ReportQuotaUsage.java). This is where we start to see the system hit its limits. Until 272 TPMS it&#39;s 1ms, but then it rapidly spikes to 9ms at 274 TPMS and breaks our SLA at 286 TPMS with 19ms. This is what we&#39;d expect, as the CPU is around 75% by then, and requests are starting to queue, which manifests itself as latency.
+* The blue line is the 99th Percentile latency for [ReportQuotaUsage](https://github.com/srmadscience/voltdb-charglt/blob/master/serverSrc/chargingdemoprocs/ReportQuotaUsage.java). This is where we start to see the system hit its limits. Until 272 TPMS it&#39;s 1ms, but then it rapidly spikes to 9ms at 274 TPMS and breaks our SLA at 286 TPMS with 19ms. This is what we&#39;d expect, as the CPU is around 75% by then, and requests are starting to queue, which manifests itself as latency.
 
-The Blue dashed line below is the average latency for  [ReportQuotaUsage](https://github.com/srmadscience/voltdb-charglt/blob/master/serverSrc/chargingdemoprocs/ReportQuotaUsage.java), and shows that if you didn&#39;t care about the 99th percentile and were willing to work with average latency instead, you could probably get around 25% more TPMS out of the system.
+* The Blue dashed line below is the average latency for  [ReportQuotaUsage](https://github.com/srmadscience/voltdb-charglt/blob/master/serverSrc/chargingdemoprocs/ReportQuotaUsage.java), and shows that if you didn&#39;t care about the 99th percentile and were willing to work with average latency instead, you could probably get around 25% more TPMS out of the system.
 
-The Green lines show us that the profile of [AddCredit](https://github.com/srmadscience/voltdb-charglt/blob/master/serverSrc/chargingdemoprocs/AddCredit.java) is pretty much the same.
+* The Green lines show us that the profile of [AddCredit](https://github.com/srmadscience/voltdb-charglt/blob/master/serverSrc/chargingdemoprocs/AddCredit.java) is pretty much the same.
 
 In practical terms this means we could  easily meet the requested workload of 166,666 TPS.
 
