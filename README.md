@@ -4,9 +4,9 @@
 
 ## See Also:
 
-[mongodb-charglt](https://github.com/srmadscience/mongodb-charglt)
-[s2-charglt](https://github.com/srmadscience/s2-charglt)
-[redis-charglt](https://github.com/srmadscience/redis-charglt)
+* [mongodb-charglt](https://github.com/srmadscience/mongodb-charglt)
+* [s2-charglt](https://github.com/srmadscience/s2-charglt)
+* [redis-charglt](https://github.com/srmadscience/redis-charglt)
 
 ## Introduction
 
