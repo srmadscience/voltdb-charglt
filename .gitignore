@@ -1,2 +1,5 @@
 /bin/
 /target/
+
+# Maven / macOS
+.DS_Store
