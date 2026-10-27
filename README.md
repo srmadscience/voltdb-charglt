@@ -174,7 +174,7 @@ To make things easier we use a file called &quot;[runbenchmark.sh](https://githu
 
 ![graph](https://github.com/srmadscience/voltdb-charglt/blob/master/results/sorted_raw_data_chart190725.png "graph")
 
-* In the graph above the green line is &quot;Requested TPMS&quot; - How many transactions per millisecond we were trying to do.
+* In the graph above the straight diagonal green line is &quot;Requested TPMS&quot; - How many transactions per millisecond we were trying to do.
 
 * The red line is what we actually did. Due to the vagaries of how the test runs it&#39;s often slightly higher than &quot;Requested TPMS&quot; at the start, but then tracks it reasonably accurately.
 
@@ -184,7 +184,7 @@ To make things easier we use a file called &quot;[runbenchmark.sh](https://githu
 
 * The Blue dashed line below is the average latency for  [ReportQuotaUsage](https://github.com/srmadscience/voltdb-charglt/blob/master/serverSrc/chargingdemoprocs/ReportQuotaUsage.java), and shows that if you didn&#39;t care about the 99th percentile and were willing to work with average latency instead, you could probably get around 25% more TPMS out of the system.
 
-* The Green lines show us that the profile of [AddCredit](https://github.com/srmadscience/voltdb-charglt/blob/master/serverSrc/chargingdemoprocs/AddCredit.java) is pretty much the same.
+* The right hand solid and dashed Green lines show us that the profile of [AddCredit](https://github.com/srmadscience/voltdb-charglt/blob/master/serverSrc/chargingdemoprocs/AddCredit.java) is pretty much the same.
 
 In practical terms this means we could  easily meet the requested workload of 166,666 TPS.
 
